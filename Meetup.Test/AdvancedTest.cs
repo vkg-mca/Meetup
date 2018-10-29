@@ -21,8 +21,8 @@ namespace Meetup.Test
         }
 
         [Theory]
-        [InlineData(1, "Advanced: End-To-End Rapid API Development-1", 20)]
-        [InlineData(2, "Advanced: End-To-End Rapid API Development-2", 30)]
+        [InlineData(6, "Advanced: End-To-End Rapid API Development-6", 20)]
+        [InlineData(7, "Advanced: End-To-End Rapid API Development-7", 30)]
         public async Task CreateMeetup_1(int id, string topic, int participantCount)
         {
             MeetupDetail meetup = new MeetupDetail()
@@ -63,8 +63,8 @@ namespace Meetup.Test
         }
 
         [Theory]
-        [InlineData(1, "Advanced: End-To-End Rapid API Development-11")]
-        [InlineData(2, "Advanced: End-To-End Rapid API Development-22")]
+        [InlineData(6, "Advanced: End-To-End Rapid API Development-8")]
+        [InlineData(7, "Advanced: End-To-End Rapid API Development-9")]
         public async Task UpdateMeetup_3(int id, string topic)
         {
             MeetupDetail meetup = new MeetupDetail()
@@ -72,7 +72,7 @@ namespace Meetup.Test
                 Id = id,
                 Topic = topic,
             };
-           await _client.ApiMeetupDetailsByIdPutAsync(id,meetup);
+            await _client.ApiMeetupDetailsByIdPutAsync(id, meetup);
         }
 
     }
@@ -81,9 +81,9 @@ namespace Meetup.Test
     {
         public IEnumerator<object[]> GetEnumerator()
         {
-            yield return new object[] { 3, "Advanced: End-To-End Rapid API Development - 1", 10, DateTime.Now };
-            yield return new object[] { 4, "Advanced: End-To-End Rapid API Development - 1", 20, DateTime.Now };
-            yield return new object[] { 5, "Advanced: End-To-End Rapid API Development - 1", 30, DateTime.Now };
+            yield return new object[] { 10, "Advanced: End-To-End Rapid API Development - 1", 10, DateTime.Now };
+            yield return new object[] { 11, "Advanced: End-To-End Rapid API Development - 1", 20, DateTime.Now };
+            yield return new object[] { 12, "Advanced: End-To-End Rapid API Development - 1", 30, DateTime.Now };
         }
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
