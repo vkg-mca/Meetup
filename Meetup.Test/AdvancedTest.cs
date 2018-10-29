@@ -13,11 +13,11 @@ namespace Meetup.Test
     public class AdvancedTest
     {
         private readonly ITestOutputHelper _output;
-        private readonly IClient _client;
+        private readonly IMeetupClient _client;
         public AdvancedTest(ITestOutputHelper output)
         {
             _output = output;
-            _client = new Client("http://localhost:3987");
+            _client = new MeetupClient();
         }
 
         [Theory]

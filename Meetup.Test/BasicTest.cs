@@ -10,11 +10,11 @@ namespace Meetup.Test
     public class BasicTest
     {
         private readonly ITestOutputHelper _output;
-        private readonly IClient _client;
+        private readonly IMeetupClient _client;
         public BasicTest(ITestOutputHelper output)
         {
             _output = output;
-            _client = new Client("http://localhost:3987");
+            _client = new MeetupClient();
         }
 
         [Fact]
@@ -92,7 +92,7 @@ namespace Meetup.Test
             //Delete
             var deleted = await _client.ApiMeetupDetailsByIdDeleteAsync(id);
             //Get
-            SwaggerException actual = await Assert.ThrowsAsync<SwaggerException<ProblemDetails>>(async ()
+            MeetupException actual = await Assert.ThrowsAsync<MeetupException<ProblemDetails>>(async ()
                  => await _client.ApiMeetupDetailsByIdDeleteAsync(id));
             //Assert
             Assert.Equal((int)HttpStatusCode.NotFound, actual.StatusCode);

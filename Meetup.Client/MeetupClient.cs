@@ -4,114 +4,117 @@
 // </auto-generated>
 //----------------------
 
+using System;
+using System.Net.Http;
+using System.Collections.Generic;
+
 namespace Meetup
 {
     #pragma warning disable // Disable all warnings
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.20.1.0 (NJsonSchema v9.11.0.0 (Newtonsoft.Json v9.0.0.0))")]
-    public partial interface IClient
+    public partial interface IMeetupClient
     {
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MeetupDetail>> ApiMeetupDetailsGetAsync();
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<IEnumerable<MeetupDetail>> ApiMeetupDetailsGetAsync();
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MeetupDetail>> ApiMeetupDetailsGetAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<IEnumerable<MeetupDetail>> ApiMeetupDetailsGetAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsPostAsync(MeetupDetail meetupDetail);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsPostAsync(MeetupDetail meetupDetail, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsByIdGetAsync(int id);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsByIdGetAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         System.Threading.Tasks.Task ApiMeetupDetailsByIdPutAsync(int id, MeetupDetail meetupDetail);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task ApiMeetupDetailsByIdPutAsync(int id, MeetupDetail meetupDetail, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsByIdDeleteAsync(int id);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsByIdDeleteAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> ApiValuesGetAsync();
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
+        System.Threading.Tasks.Task<IEnumerable<string>> ApiValuesGetAsync();
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> ApiValuesGetAsync(System.Threading.CancellationToken cancellationToken);
+        System.Threading.Tasks.Task<IEnumerable<string>> ApiValuesGetAsync(System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         System.Threading.Tasks.Task ApiValuesPostAsync(string value);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task ApiValuesPostAsync(string value, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         System.Threading.Tasks.Task<string> ApiValuesByIdGetAsync(int id);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<string> ApiValuesByIdGetAsync(int id, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         System.Threading.Tasks.Task ApiValuesByIdPutAsync(int id, string value);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task ApiValuesByIdPutAsync(int id, string value, System.Threading.CancellationToken cancellationToken);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         System.Threading.Tasks.Task ApiValuesByIdDeleteAsync(int id);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task ApiValuesByIdDeleteAsync(int id, System.Threading.CancellationToken cancellationToken);
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.20.1.0 (NJsonSchema v9.11.0.0 (Newtonsoft.Json v9.0.0.0))")]
-    public partial class Client : IClient
+    public partial class MeetupClient : IMeetupClient
     {
-        private string _baseUrl = "";
+        private string _baseUrl = "http://localhost:3987";
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public Client(string baseUrl)
+        public MeetupClient()
         {
-            BaseUrl = baseUrl; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
             {
                 var settings = new Newtonsoft.Json.JsonSerializerSettings();
@@ -129,26 +132,26 @@ namespace Meetup
         protected Newtonsoft.Json.JsonSerializerSettings JsonSerializerSettings { get { return _settings.Value; } }
     
         partial void UpdateJsonSerializerSettings(Newtonsoft.Json.JsonSerializerSettings settings);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
-        partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
-        partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
+        partial void PrepareRequest(HttpClient client, System.Net.Http.HttpRequestMessage request, string url);
+        partial void PrepareRequest(HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
+        partial void ProcessResponse(HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MeetupDetail>> ApiMeetupDetailsGetAsync()
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<IEnumerable<MeetupDetail>> ApiMeetupDetailsGetAsync()
         {
             return ApiMeetupDetailsGetAsync(System.Threading.CancellationToken.None);
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<MeetupDetail>> ApiMeetupDetailsGetAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<IEnumerable<MeetupDetail>> ApiMeetupDetailsGetAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/MeetupDetails");
     
-            var client_ = new System.Net.Http.HttpClient();
+            var client_ = new HttpClient();
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -177,25 +180,25 @@ namespace Meetup
                         if (status_ == "200") 
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(System.Collections.ObjectModel.ObservableCollection<MeetupDetail>); 
+                            var result_ = default(IEnumerable<MeetupDetail>); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.ObjectModel.ObservableCollection<MeetupDetail>>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<MeetupDetail>>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                            throw new MeetupException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(System.Collections.ObjectModel.ObservableCollection<MeetupDetail>);
+                        return default(IEnumerable<MeetupDetail>);
                     }
                     finally
                     {
@@ -212,21 +215,21 @@ namespace Meetup
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsPostAsync(MeetupDetail meetupDetail)
         {
             return ApiMeetupDetailsPostAsync(meetupDetail, System.Threading.CancellationToken.None);
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsPostAsync(MeetupDetail meetupDetail, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/MeetupDetails");
     
-            var client_ = new System.Net.Http.HttpClient();
+            var client_ = new HttpClient();
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -266,7 +269,7 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
                         }
                         else
@@ -280,9 +283,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "0") 
@@ -295,15 +298,15 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                            throw new MeetupException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
                         return default(MeetupDetail);
@@ -323,14 +326,14 @@ namespace Meetup
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsByIdGetAsync(int id)
         {
             return ApiMeetupDetailsByIdGetAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsByIdGetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
@@ -341,7 +344,7 @@ namespace Meetup
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/MeetupDetails/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = new System.Net.Http.HttpClient();
+            var client_ = new HttpClient();
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -378,7 +381,7 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
                         }
                         else
@@ -392,9 +395,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "0") 
@@ -407,15 +410,15 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                            throw new MeetupException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
                         return default(MeetupDetail);
@@ -435,14 +438,14 @@ namespace Meetup
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task ApiMeetupDetailsByIdPutAsync(int id, MeetupDetail meetupDetail)
         {
             return ApiMeetupDetailsByIdPutAsync(id, meetupDetail, System.Threading.CancellationToken.None);
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task ApiMeetupDetailsByIdPutAsync(int id, MeetupDetail meetupDetail, System.Threading.CancellationToken cancellationToken)
         {
@@ -453,7 +456,7 @@ namespace Meetup
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/MeetupDetails/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = new System.Net.Http.HttpClient();
+            var client_ = new HttpClient();
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -496,9 +499,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "400") 
@@ -511,9 +514,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "0") 
@@ -526,15 +529,15 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                            throw new MeetupException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
                     }
                     finally
@@ -552,14 +555,14 @@ namespace Meetup
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsByIdDeleteAsync(int id)
         {
             return ApiMeetupDetailsByIdDeleteAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task<MeetupDetail> ApiMeetupDetailsByIdDeleteAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
@@ -570,7 +573,7 @@ namespace Meetup
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/MeetupDetails/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = new System.Net.Http.HttpClient();
+            var client_ = new HttpClient();
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -607,7 +610,7 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
                         }
                         else
@@ -621,9 +624,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "400") 
@@ -636,9 +639,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "0") 
@@ -651,15 +654,15 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                            throw new MeetupException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
                         return default(MeetupDetail);
@@ -679,21 +682,21 @@ namespace Meetup
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> ApiValuesGetAsync()
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
+        public System.Threading.Tasks.Task<IEnumerable<string>> ApiValuesGetAsync()
         {
             return ApiValuesGetAsync(System.Threading.CancellationToken.None);
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<string>> ApiValuesGetAsync(System.Threading.CancellationToken cancellationToken)
+        public async System.Threading.Tasks.Task<IEnumerable<string>> ApiValuesGetAsync(System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Values");
     
-            var client_ = new System.Net.Http.HttpClient();
+            var client_ = new HttpClient();
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -722,25 +725,25 @@ namespace Meetup
                         if (status_ == "200") 
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(System.Collections.ObjectModel.ObservableCollection<string>); 
+                            var result_ = default(IEnumerable<string>); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<System.Collections.ObjectModel.ObservableCollection<string>>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<IEnumerable<string>>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
                         }
                         else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                            throw new MeetupException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(System.Collections.ObjectModel.ObservableCollection<string>);
+                        return default(IEnumerable<string>);
                     }
                     finally
                     {
@@ -757,21 +760,21 @@ namespace Meetup
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task ApiValuesPostAsync(string value)
         {
             return ApiValuesPostAsync(value, System.Threading.CancellationToken.None);
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task ApiValuesPostAsync(string value, System.Threading.CancellationToken cancellationToken)
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Values");
     
-            var client_ = new System.Net.Http.HttpClient();
+            var client_ = new HttpClient();
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -814,9 +817,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "0") 
@@ -829,15 +832,15 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                            throw new MeetupException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
                     }
                     finally
@@ -855,14 +858,14 @@ namespace Meetup
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task<string> ApiValuesByIdGetAsync(int id)
         {
             return ApiValuesByIdGetAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task<string> ApiValuesByIdGetAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
@@ -873,7 +876,7 @@ namespace Meetup
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Values/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = new System.Net.Http.HttpClient();
+            var client_ = new HttpClient();
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -910,7 +913,7 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
                         }
                         else
@@ -924,9 +927,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "0") 
@@ -939,15 +942,15 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                            throw new MeetupException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
                         return default(string);
@@ -967,14 +970,14 @@ namespace Meetup
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task ApiValuesByIdPutAsync(int id, string value)
         {
             return ApiValuesByIdPutAsync(id, value, System.Threading.CancellationToken.None);
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task ApiValuesByIdPutAsync(int id, string value, System.Threading.CancellationToken cancellationToken)
         {
@@ -985,7 +988,7 @@ namespace Meetup
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Values/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = new System.Net.Http.HttpClient();
+            var client_ = new HttpClient();
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1028,9 +1031,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "400") 
@@ -1043,9 +1046,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "0") 
@@ -1058,15 +1061,15 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                            throw new MeetupException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
                     }
                     finally
@@ -1084,14 +1087,14 @@ namespace Meetup
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         public System.Threading.Tasks.Task ApiValuesByIdDeleteAsync(int id)
         {
             return ApiValuesByIdDeleteAsync(id, System.Threading.CancellationToken.None);
         }
     
         /// <returns>Success</returns>
-        /// <exception cref="SwaggerException">A server side error occurred.</exception>
+        /// <exception cref="MeetupException">A server side error occurred.</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task ApiValuesByIdDeleteAsync(int id, System.Threading.CancellationToken cancellationToken)
         {
@@ -1102,7 +1105,7 @@ namespace Meetup
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/api/Values/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
-            var client_ = new System.Net.Http.HttpClient();
+            var client_ = new HttpClient();
             try
             {
                 using (var request_ = new System.Net.Http.HttpRequestMessage())
@@ -1142,9 +1145,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Not Found", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "400") 
@@ -1157,9 +1160,9 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("Bad Request", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ == "0") 
@@ -1172,15 +1175,15 @@ namespace Meetup
                             } 
                             catch (System.Exception exception_) 
                             {
-                                throw new SwaggerException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
+                                throw new MeetupException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
                             }
-                            throw new SwaggerException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
+                            throw new MeetupException<ProblemDetails>("A server side error occurred.", (int)response_.StatusCode, responseData_, headers_, result_, null);
                         }
                         else
                         if (status_ != "200" && status_ != "204")
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new SwaggerException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                            throw new MeetupException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
                     }
                     finally
@@ -1427,7 +1430,7 @@ namespace Meetup
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.20.1.0 (NJsonSchema v9.11.0.0 (Newtonsoft.Json v9.0.0.0))")]
-    public partial class SwaggerException : System.Exception
+    public partial class MeetupException : System.Exception
     {
         public int StatusCode { get; private set; }
 
@@ -1435,7 +1438,7 @@ namespace Meetup
 
         public System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
 
-        public SwaggerException(string message, int statusCode, string response, System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException) 
+        public MeetupException(string message, int statusCode, string response, System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException) 
             : base(message + "\n\nStatus: " + statusCode + "\nResponse: \n" + response.Substring(0, response.Length >= 512 ? 512 : response.Length), innerException)
         {
             StatusCode = statusCode;
@@ -1450,11 +1453,11 @@ namespace Meetup
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.20.1.0 (NJsonSchema v9.11.0.0 (Newtonsoft.Json v9.0.0.0))")]
-    public partial class SwaggerException<TResult> : SwaggerException
+    public partial class MeetupException<TResult> : MeetupException
     {
         public TResult Result { get; private set; }
 
-        public SwaggerException(string message, int statusCode, string response, System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException) 
+        public MeetupException(string message, int statusCode, string response, System.Collections.Generic.Dictionary<string, System.Collections.Generic.IEnumerable<string>> headers, TResult result, System.Exception innerException) 
             : base(message, statusCode, response, headers, innerException)
         {
             Result = result;
