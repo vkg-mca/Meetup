@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Meetup.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Meetup.Api.Controllers.MeetupDetailsController">
+            <summary>
+            Meetuo management APIs
+            </summary>
+        </member>
+        <member name="M:Meetup.Api.Controllers.MeetupDetailsController.GetMeetupDetail">
+            <summary>
+            Retrives all meetup details
+            </summary>
+            <returns>List of meetups</returns>
+        </member>
+        <member name="M:Meetup.Api.Controllers.MeetupDetailsController.GetMeetupDetail(System.Int32)">
+            <summary>
+            Get a specific meetup detail
+            </summary>
+            <param name="id">meetup id</param>
+            <returns>Meetup detail</returns>
+        </member>
+        <member name="M:Meetup.Api.Controllers.MeetupDetailsController.PutMeetupDetail(System.Int32,Meetup.Entities.Models.MeetupDetail)">
+            <summary>
+            Update meetup detail
+            </summary>
+            <param name="id">meetup id</param>
+            <param name="meetupDetail"></param>
+            <returns>Result of the update request</returns>
+        </member>
+        <member name="M:Meetup.Api.Controllers.MeetupDetailsController.PostMeetupDetail(Meetup.Entities.Models.MeetupDetail)">
+            <summary>
+            Create a new meetup
+            </summary>
+            <param name="meetupDetail">Meetup to be cerated</param>
+            <returns>Resulot of the create request</returns>
+        </member>
+        <member name="M:Meetup.Api.Controllers.MeetupDetailsController.DeleteMeetupDetail(System.Int32)">
+            <summary>
+            Delete meetup
+            </summary>
+            <param name="id">Meetup id</param>
+            <returns>Deleted meetup</returns>
+        </member>
+    </members>
+</doc>
