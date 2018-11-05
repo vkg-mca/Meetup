@@ -71,6 +71,8 @@ namespace Meetup.Test
             {
                 Id = id,
                 Topic = topic,
+                Date = DateTime.Now,
+                ParticipantsCount = 40
             };
             await _client.ApiMeetupDetailsByIdPutAsync(id, meetup);
         }
