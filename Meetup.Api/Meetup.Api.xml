@@ -6,8 +6,14 @@
     <members>
         <member name="T:Meetup.Api.Controllers.MeetupDetailsController">
             <summary>
-            Meetuo management APIs
+            Meetup management APIs
             </summary>
+        </member>
+        <member name="M:Meetup.Api.Controllers.MeetupDetailsController.#ctor(Meetup.Entities.Models.MeetupDbContext)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="context"></param>
         </member>
         <member name="M:Meetup.Api.Controllers.MeetupDetailsController.GetMeetupDetail">
             <summary>

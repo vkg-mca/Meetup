@@ -20,6 +20,10 @@ namespace Meetup.Api.Controllers
     {
         private readonly MeetupDbContext _context;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="context"></param>
         public MeetupDetailsController(MeetupDbContext context)
         {
             _context = context;
