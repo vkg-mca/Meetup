@@ -1,4 +1,12 @@
-﻿using Meetup.Entities.Models;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
+
+using BeatPulse;
+using BeatPulse.Core;
+using BeatPulse.UI;
+
+using Meetup.Entities.Models;
 
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,8 +17,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
 
 using Swashbuckle.AspNetCore.Swagger;
-
-using System.IO;
 
 namespace Meetup.Api
 {
@@ -26,13 +32,11 @@ namespace Meetup.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddBeatPulseUI();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<MeetupDbContext>(options => options.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=MeetupDb;Integrated Security=SSPI;"));
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new Info { Title = "Meetup API", Version = "v1" });
-            //});
-
+            
+            //Swagger
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1",
@@ -56,7 +60,67 @@ namespace Meetup.Api
                 options.DescribeAllEnumsAsStrings();
             });
 
+            //Beatpulse
+            services.AddBeatPulse(setup =>
+            {
+                //
+                //add existing liveness packages
+                //
 
+                setup.AddSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=MeetupDb;Integrated Security=SSPI;");
+                // or setup.AddXXXX() for all liveness packages on Nuget (mysql,sqlite,urlgroup,redis,idsvr,kafka,aws dynamo,azure storage and much more)
+                // ie: setup.AddOracle("Data Source=localhost:49161/xe;User Id=system;Password=oracle");
+
+                setup.AddUrlGroup(new Uri[] { new Uri("http://www.google.es") });
+
+                //setup.AddUrlGroup(opt =>
+                //{
+                //    opt.AddUri(new Uri("http://google.com"), uri =>
+                //    {
+                //        uri.UsePost()
+                //           .AddCustomHeader("X-Method-Override", "DELETE");
+                //    });
+                //}, "uri-group2", "UriLiveness2");
+
+                //
+                //create simple ad-hoc liveness
+                //
+
+                setup.AddLiveness("custom-liveness", opt =>
+                {
+                    opt.UsePath("custom-liveness");
+                    opt.UseLiveness(new ActionLiveness((cancellationToken) =>
+                    {
+                        if (DateTime.Now.Minute % 3 == 0)
+                        {
+                            return Task.FromResult(
+                                LivenessResult.Healthy());
+                        }
+                        else
+                        {
+                            return Task.FromResult(
+                                LivenessResult.UnHealthy(new ArgumentNullException("param1")));
+                        }
+                    }));
+                });
+
+                //
+                //ceate ad-hoc liveness with dependency resolution
+                //
+
+                //setup.AddLiveness("custom-liveness-with-dependency", opt =>
+                //{
+                //    opt.UsePath("custom-liveness-with-dependency");
+                //    opt.UseFactory(sp => new ActionLiveness((cancellationToken) =>
+                //    {
+                //        var logger = sp.GetRequiredService<ILogger<Startup>>();
+                //        logger.LogInformation("Logger is a dependency for this liveness");
+
+                //        return Task.FromResult(
+                //            LivenessResult.Healthy());
+                //    }));
+                //});
+            });
 
         }
 
@@ -67,6 +131,7 @@ namespace Meetup.Api
             {
                 app.UseDeveloperExceptionPage();
             };
+            app.UseBeatPulseUI();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -76,3 +141,5 @@ namespace Meetup.Api
         }
     }
 }
+
+

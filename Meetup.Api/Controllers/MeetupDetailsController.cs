@@ -1,11 +1,11 @@
-﻿using Meetup.Entities.Models;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Meetup.Entities.Models;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
 
@@ -142,6 +142,19 @@ namespace Meetup.Api.Controllers
             await _context.SaveChangesAsync();
 
             return meetupDetail;
+        }
+
+        [HttpGet]
+        [Route("health")]
+        public async Task<ActionResult<string>> Health()
+        {
+            return "healthy";
+        }
+        [HttpGet]
+        [Route("liveness")]
+        public async Task<ActionResult<string>> Live()
+        {
+            return "live";
         }
 
         private bool MeetupDetailExists(int id)
