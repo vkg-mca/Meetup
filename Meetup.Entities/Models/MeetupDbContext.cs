@@ -15,6 +15,7 @@ namespace Meetup.Entities.Models
 
         public virtual DbSet<Meetup> Meetup { get; set; }
         public virtual DbSet<MeetupDetail> MeetupDetail { get; set; }
+        public virtual DbSet<MeetupFeedback> MeetupFeedback { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -43,6 +44,10 @@ namespace Meetup.Entities.Models
                 entity.Property(e => e.Topic)
                     .HasMaxLength(500)
                     .IsUnicode(false);
+            });
+            modelBuilder.Entity<MeetupFeedback>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
             });
         }
     }

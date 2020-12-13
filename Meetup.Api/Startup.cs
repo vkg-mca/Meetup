@@ -15,7 +15,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
-
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace Meetup.Api
@@ -32,7 +32,6 @@ namespace Meetup.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddBeatPulseUI();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<MeetupDbContext>(options => options.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=MeetupDb;Integrated Security=SSPI;"));
             
@@ -40,17 +39,16 @@ namespace Meetup.Api
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1",
-                    new Info
+                    new OpenApiInfo
                     {
                         Title = "Meetup Api",
                         Version = "v1",
                         Description = "Meetup API Services",
-                        TermsOfService = "WTFPL",
-                        Contact = new Contact
+                        Contact = new OpenApiContact
                         {
                             Email = "vkg.mca@gmail.com",
                             Name = "Vinod Gupta",
-                            Url = "https://github.com/vkg-mca"
+                            Url = new Uri( "https://github.com/vkg-mca")
                         }
                     }
                 );
@@ -137,7 +135,6 @@ namespace Meetup.Api
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Meetup API V1");
             });
-            app.UseMvc();
         }
     }
 }
