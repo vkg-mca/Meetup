@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
 
-namespace Meetup.Api.Controllers
+namespace MeetupApi
 {
     [Route("meetup")]
     [ApiController]
