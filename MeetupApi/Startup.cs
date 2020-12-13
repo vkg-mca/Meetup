@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
 using Meetup.Entities.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,18 +21,24 @@ namespace MeetupApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private IWebHostEnvironment Environment { get; }
+        private IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment environment)
         {
-            Configuration = configuration;
+            Environment = environment;
+
+            Configuration = new DefaultConfigurationBuilder().Build(environment);
         }
 
-        public IConfiguration Configuration { get; }
+        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<MeetupDbContext>(options => options.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=MeetupDb;Integrated Security=SSPI;"));
+            services.AddDbContext<MeetupDbContext>(options =>
+                options.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=MeetupDb;Integrated Security=SSPI;"));
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1",
@@ -49,7 +56,8 @@ namespace MeetupApi
                     }
                 );
                 //services.ConfigureSwaggerGen(c => c.CustomSchemaIds(x => x.FullName));
-                var xmlDocFile = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath, "MeetupApi.xml");
+                var xmlDocFile = Path.Combine(PlatformServices.Default.Application.ApplicationBasePath,
+                    "MeetupApi.xml");
                 options.IncludeXmlComments(xmlDocFile);
             });
 
@@ -70,15 +78,14 @@ namespace MeetupApi
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Meetup API - V1");
-            });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Meetup API - V1"); });
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new MeetupBootstrapper(Configuration));
         }
     }
 }
