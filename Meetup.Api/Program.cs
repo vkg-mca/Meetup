@@ -1,5 +1,6 @@
-﻿using Microsoft.AspNetCore;
+﻿using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace Meetup.Api
 {
@@ -7,19 +8,16 @@ namespace Meetup.Api
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+	 CreateHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                //.UseBeatPulse(options =>
-                //{
-                //    options.ConfigurePath("health") //default hc
-                //                                    //.ConfigurePort(65400)  //use only with this sample is executed on commandname Project not on IIS
-                //        .ConfigureOutputCache(10)      // Can use CacheMode as second parameter
-                //        .ConfigureTimeout(milliseconds: 1500) // default -1 infinitely
-                //        .ConfigureDetailedOutput(includeExceptionMessages: true); //default false
-                //})
-            .UseStartup<Startup>();
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+	  Host.CreateDefaultBuilder(args)
+	      .UseServiceProviderFactory(new AutofacServiceProviderFactory())
+	      .ConfigureWebHostDefaults(webBuilder =>
+	      {
+	          webBuilder.UseKestrel(options => options.AllowSynchronousIO = true)
+	          .UseStartup<Startup>();
+	      });
     }
 }

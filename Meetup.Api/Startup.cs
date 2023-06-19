@@ -1,9 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
-
+﻿using Autofac;
 using Meetup.Entities.Models;
-
+using MeetupApi;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.IO;
 
 namespace Meetup.Api
 {
@@ -28,7 +26,7 @@ namespace Meetup.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
-            services.AddDbContext<MeetupDbContext>(options => options.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=MeetupDb;Integrated Security=SSPI;"));
+            services.AddDbContext<MeetupDbContext>(options => options.UseSqlServer("Data Source=PARAM\\SQLEXPRESS;Initial Catalog=MeetupDb;Integrated Security=SSPI;TrustServerCertificate=True;"));
             
             //Swagger
             services.AddSwaggerGen(options =>
@@ -52,68 +50,68 @@ namespace Meetup.Api
                 options.IncludeXmlComments(xmlDocFile);
                 //options.DescribeAllEnumsAsStrings();
             });
+	 services.AddControllers();
+	 //Beatpulse
+	 //services.AddBeatPulse(setup =>
+	 //{
+	 //    //
+	 //    //add existing liveness packages
+	 //    //
 
-            //Beatpulse
-            //services.AddBeatPulse(setup =>
-            //{
-            //    //
-            //    //add existing liveness packages
-            //    //
+	 //    setup.AddSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=MeetupDb;Integrated Security=SSPI;");
+	 //    // or setup.AddXXXX() for all liveness packages on Nuget (mysql,sqlite,urlgroup,redis,idsvr,kafka,aws dynamo,azure storage and much more)
+	 //    // ie: setup.AddOracle("Data Source=localhost:49161/xe;User Id=system;Password=oracle");
 
-            //    setup.AddSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=MeetupDb;Integrated Security=SSPI;");
-            //    // or setup.AddXXXX() for all liveness packages on Nuget (mysql,sqlite,urlgroup,redis,idsvr,kafka,aws dynamo,azure storage and much more)
-            //    // ie: setup.AddOracle("Data Source=localhost:49161/xe;User Id=system;Password=oracle");
+	 //    setup.AddUrlGroup(new Uri[] { new Uri("http://www.google.es") });
 
-            //    setup.AddUrlGroup(new Uri[] { new Uri("http://www.google.es") });
+	 //    //setup.AddUrlGroup(opt =>
+	 //    //{
+	 //    //    opt.AddUri(new Uri("http://google.com"), uri =>
+	 //    //    {
+	 //    //        uri.UsePost()
+	 //    //           .AddCustomHeader("X-Method-Override", "DELETE");
+	 //    //    });
+	 //    //}, "uri-group2", "UriLiveness2");
 
-            //    //setup.AddUrlGroup(opt =>
-            //    //{
-            //    //    opt.AddUri(new Uri("http://google.com"), uri =>
-            //    //    {
-            //    //        uri.UsePost()
-            //    //           .AddCustomHeader("X-Method-Override", "DELETE");
-            //    //    });
-            //    //}, "uri-group2", "UriLiveness2");
+	 //    //
+	 //    //create simple ad-hoc liveness
+	 //    //
 
-            //    //
-            //    //create simple ad-hoc liveness
-            //    //
+	 //    setup.AddLiveness("custom-liveness", opt =>
+	 //    {
+	 //        opt.UsePath("custom-liveness");
+	 //        opt.UseLiveness(new ActionLiveness((cancellationToken) =>
+	 //        {
+	 //            if (DateTime.Now.Minute % 3 == 0)
+	 //            {
+	 //                return Task.FromResult(
+	 //                    LivenessResult.Healthy());
+	 //            }
+	 //            else
+	 //            {
+	 //                return Task.FromResult(
+	 //                    LivenessResult.UnHealthy(new ArgumentNullException("param1")));
+	 //            }
+	 //        }));
+	 //    });
 
-            //    setup.AddLiveness("custom-liveness", opt =>
-            //    {
-            //        opt.UsePath("custom-liveness");
-            //        opt.UseLiveness(new ActionLiveness((cancellationToken) =>
-            //        {
-            //            if (DateTime.Now.Minute % 3 == 0)
-            //            {
-            //                return Task.FromResult(
-            //                    LivenessResult.Healthy());
-            //            }
-            //            else
-            //            {
-            //                return Task.FromResult(
-            //                    LivenessResult.UnHealthy(new ArgumentNullException("param1")));
-            //            }
-            //        }));
-            //    });
+	 //    //
+	 //    //ceate ad-hoc liveness with dependency resolution
+	 //    //
 
-            //    //
-            //    //ceate ad-hoc liveness with dependency resolution
-            //    //
+	 //    //setup.AddLiveness("custom-liveness-with-dependency", opt =>
+	 //    //{
+	 //    //    opt.UsePath("custom-liveness-with-dependency");
+	 //    //    opt.UseFactory(sp => new ActionLiveness((cancellationToken) =>
+	 //    //    {
+	 //    //        var logger = sp.GetRequiredService<ILogger<Startup>>();
+	 //    //        logger.LogInformation("Logger is a dependency for this liveness");
 
-            //    //setup.AddLiveness("custom-liveness-with-dependency", opt =>
-            //    //{
-            //    //    opt.UsePath("custom-liveness-with-dependency");
-            //    //    opt.UseFactory(sp => new ActionLiveness((cancellationToken) =>
-            //    //    {
-            //    //        var logger = sp.GetRequiredService<ILogger<Startup>>();
-            //    //        logger.LogInformation("Logger is a dependency for this liveness");
-
-            //    //        return Task.FromResult(
-            //    //            LivenessResult.Healthy());
-            //    //    }));
-            //    //});
-            //});
+	 //    //        return Task.FromResult(
+	 //    //            LivenessResult.Healthy());
+	 //    //    }));
+	 //    //});
+	 //});
 
         }
 
@@ -124,12 +122,23 @@ namespace Meetup.Api
             {
                 app.UseDeveloperExceptionPage();
             };
-            //app.UseBeatPulseUI();
-            app.UseSwagger();
+	 //app.UseBeatPulseUI();
+	 //
+	 app.UseHttpsRedirection();
+
+	 app.UseRouting();
+
+	 app.UseAuthorization();
+	 //
+	 app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Meetup API V1");
             });
+        }
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+	 builder.RegisterModule(new MeetupBootstrapper(Configuration));
         }
     }
 }
